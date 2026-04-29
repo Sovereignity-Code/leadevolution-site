@@ -359,18 +359,6 @@
   /* =========================================================
      TESTIMONIALS
      ========================================================= */
-  .testimonials{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
-  }
-  .testimonial{
-    background:#112240;
-    border:1px solid #1E3A5F;border-radius:14px;padding:32px;
-    position:relative;
-  }
-  .stars{color:#3B82F6;margin-bottom:16px;letter-spacing:2px;font-size:15px}
-  .testimonial p{
-    font-size:15px;color:#CBD5E1;line-height:1.65;margin-bottom:22px;
-  }
   .t-author{
     display:flex;align-items:center;gap:14px;padding-top:20px;
     border-top:1px solid #1E3A5F;
@@ -446,8 +434,7 @@
   @media (max-width:1024px){
     .pillars{grid-template-columns:repeat(3,1fr)}
     .verticals{grid-template-columns:repeat(2,1fr)}
-    .testimonials{grid-template-columns:1fr;max-width:640px;margin:0 auto}
-    .steps{grid-template-columns:repeat(2,1fr)}
+      .steps{grid-template-columns:repeat(2,1fr)}
   }
   @media (max-width:768px){
     section{padding:72px 0}
@@ -838,55 +825,6 @@
   </div>
 </section>
 
-<!-- ============ TESTIMONIALS ============ -->
-<section id="proof">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Social Proof</span>
-      <h2>Sales Managers Who <span>Switched.</span></h2>
-      <p class="lede">Australian brokers, advisers and insurance specialists who walked away from shared lead networks and never looked back.</p>
-    </div>
-    <div class="testimonials">
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p>"We cut our cost-per-settlement in half in the first quarter. The fact they're exclusive means my brokers aren't racing against three other offices to get a callback. Game changer."</p>
-        <div class="t-author">
-          <div class="t-avatar">JM</div>
-          <div>
-            <div class="t-name">James McAllister</div>
-            <div class="t-role">Mortgage Broker · Brisbane</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p>"The CRM integration is what sold me. Lead qualifies on their end, my adviser's phone is ringing before the prospect has put theirs down. That kind of speed used to be unheard of in this industry."</p>
-        <div class="t-author">
-          <div class="t-avatar">AL</div>
-          <div>
-            <div class="t-name">Amelia Lombardi</div>
-            <div class="t-role">Financial Adviser · Sydney</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p>"Verification alone pays for the service. We used to burn two days a week chasing dead numbers from the shared networks. LeadEvolution's leads answer, because they already answered once."</p>
-        <div class="t-author">
-          <div class="t-avatar">DC</div>
-          <div>
-            <div class="t-name">Daniel Chen</div>
-            <div class="t-role">Insurance Broker · Melbourne</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- ============ FAQ ============ -->
 <section id="faq">
