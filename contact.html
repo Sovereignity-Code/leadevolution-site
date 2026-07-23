@@ -2,9 +2,111 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Contact LeadEvolution | Get Qualified Leads for Your Business</title>
-<meta name="description" content="Get in touch with LeadEvolution. Tell us your vertical and volume requirements and we'll get you started within 24 hours. No contracts. Pay per lead.">
+<title>Get Started with LeadEvolution | Tell Us What You Need</title>
+<meta name="description" content="Tell us your industry, your volume, and how you want your leads delivered. We'll come back to you within one business day with a clear plan and a price.">
 <link rel="stylesheet" href="styles.css">
+<style>
+  .lead-form-shell {
+    max-width: 720px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #142033 0%, #0d1626 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 48px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+  }
+  .lead-form-shell h2 { margin: 0 0 6pt; font-size: 28px; letter-spacing: -0.02em; color: #fff; }
+  .lead-form-shell .lede { color: var(--muted); font-size: 15px; margin-bottom: 32px; line-height: 1.6; }
+  .step-header {
+    display: flex; align-items: center; gap: 10px;
+    margin: 24px 0 12px;
+    color: var(--blue);
+    font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em;
+  }
+  .step-num {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--blue); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 800;
+  }
+  .lead-form-shell label {
+    display: block; font-size: 13px; font-weight: 700;
+    color: rgba(255,255,255,0.9); margin-bottom: 8px;
+    letter-spacing: .02em;
+  }
+  .lead-form-shell input,
+  .lead-form-shell select,
+  .lead-form-shell textarea {
+    width: 100%; padding: 14px 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    color: #fff; font-size: 15px;
+    transition: all .15s ease;
+    font-family: inherit;
+  }
+  .lead-form-shell input:focus,
+  .lead-form-shell select:focus,
+  .lead-form-shell textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+    background: rgba(37,99,235,0.08);
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+  }
+  .lead-form-shell input::placeholder,
+  .lead-form-shell textarea::placeholder { color: rgba(255,255,255,0.35); }
+  .lead-form-shell select option { background: #0d1626; color: #fff; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .field { margin-bottom: 18px; }
+  .field-half { margin-bottom: 18px; }
+  .helper { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 6px; }
+  .other-input { margin-top: 10px; display: none; }
+  .other-input.show { display: block; }
+  .delivery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 4px; }
+  .delivery-option {
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    padding: 14px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all .15s ease;
+  }
+  .delivery-option:hover { border-color: rgba(37,99,235,0.4); background: rgba(37,99,235,0.05); }
+  .delivery-option input[type="radio"] {
+    position: absolute; opacity: 0; width: 0; height: 0;
+  }
+  .delivery-option .icon { font-size: 24px; margin-bottom: 6px; display: block; }
+  .delivery-option .lbl { font-size: 13px; font-weight: 700; color: #fff; }
+  .delivery-option .desc { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+  .delivery-option.active {
+    border-color: var(--blue);
+    background: rgba(37,99,235,0.12);
+    box-shadow: 0 0 0 2px rgba(37,99,235,0.25);
+  }
+  .submit-btn {
+    width: 100%; padding: 18px;
+    background: linear-gradient(135deg, var(--blue) 0%, #4A7EFF 100%);
+    border: none; border-radius: 12px;
+    color: #fff; font-size: 16px; font-weight: 700;
+    cursor: pointer; margin-top: 12px;
+    letter-spacing: .01em;
+    transition: transform .15s ease, box-shadow .15s ease;
+    box-shadow: 0 10px 30px rgba(37,99,235,0.35);
+  }
+  .submit-btn:hover { transform: translateY(-1px); box-shadow: 0 14px 40px rgba(37,99,235,0.5); }
+  .trust-row {
+    display: flex; justify-content: center; gap: 24px;
+    margin-top: 20px; font-size: 12px; color: rgba(255,255,255,0.5);
+  }
+  .trust-row span { display: flex; align-items: center; gap: 6px; }
+  @media (max-width: 640px) {
+    .lead-form-shell { padding: 28px 20px; }
+    .field-row { grid-template-columns: 1fr; }
+    .delivery-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 <nav>
@@ -14,9 +116,9 @@
       <a href="index.html" class="nav-link">Home</a>
       <div class="dropdown"><span class="nav-link">Verticals ▾</span><div class="dropdown-menu"><a href="verticals/mortgage-broker-leads.html" class="dropdown-item">🏠 Mortgage Broker Leads</a><a href="verticals/financial-planning-leads.html" class="dropdown-item">📊 Financial Planning Leads</a><a href="verticals/solar-leads.html" class="dropdown-item">☀️ Solar Leads</a><a href="verticals/insurance-leads.html" class="dropdown-item">🛡️ Insurance Broker Leads</a><a href="verticals/energy-leads.html" class="dropdown-item">⚡ Energy Broker Leads</a><a href="verticals/commercial-finance-leads.html" class="dropdown-item">🏢 Commercial Finance Leads</a></div></div>
       <a href="faq.html" class="nav-link">FAQ</a>
-      <a href="team.html" class="nav-link">Our Team</a>
+      <a href="team.html" class="nav-link">Why Us</a>
       <a href="contact.html" class="nav-link">Contact</a>
-      <a href="https://calendly.com/jordan-leadevolution/30min" target="_blank" class="nav-link nav-cta">Book Free Audit →</a>
+      <a href="contact.html" class="nav-link nav-cta">Get Started →</a>
     </div>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
@@ -30,98 +132,147 @@
   <a href="verticals/energy-leads.html" class="mobile-link">⚡ Energy Broker Leads</a>
   <a href="verticals/commercial-finance-leads.html" class="mobile-link">🏢 Commercial Finance Leads</a>
   <a href="faq.html" class="mobile-link">FAQ</a>
-  <a href="team.html" class="mobile-link">Our Team</a>
+  <a href="team.html" class="mobile-link">Why Us</a>
   <a href="contact.html" class="mobile-link">Contact</a>
-  <a href="https://calendly.com/jordan-leadevolution/30min" target="_blank" class="mobile-cta">Book Free Audit →</a>
+  <a href="contact.html" class="mobile-cta">Get Started →</a>
 </div>
 
 <div class="page-hero">
   <div class="page-hero-inner">
-    <div class="page-hero-label">Get In Touch</div>
-    <h1>Let's Talk <em>Leads</em></h1>
-    <p>Tell us your vertical, your volume, and your target market. We'll come back to you within one business day with a clear plan and a price.</p>
-    <div class="page-hero-btns">
-      <a href="https://calendly.com/jordan-leadevolution/30min" target="_blank" class="btn btn-primary">Book a Call Directly →</a>
-    </div>
+    <div class="page-hero-label">Get Started</div>
+    <h1>Tell Us What You <em>Need</em></h1>
+    <p>Industry, volume, delivery method. That's all we need to come back to you with a real plan and a real price — inside one business day.</p>
   </div>
 </div>
 
 <div class="section">
   <div class="section-inner">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
 
-      <!-- CONTACT INFO -->
-      <div>
-        <div class="section-label">Contact Details</div>
-        <h2 style="margin-bottom:32px">Get in Touch</h2>
+    <div class="lead-form-shell">
+      <h2>Let's Build Your Lead Pipeline</h2>
+      <p class="lede">Fill this in and we'll come back within one business day with a plan tailored to your volume, vertical, and delivery preferences.</p>
 
-        <div class="card" style="margin-bottom:20px">
-          <div style="font-size:28px;margin-bottom:12px">📧</div>
-          <div style="font-size:13px;font-weight:700;color:var(--muted);margin-bottom:6px;letter-spacing:.5px">EMAIL</div>
-          <a href="mailto:info@leadevolution.com.au" style="font-size:17px;font-weight:600;color:white">info@leadevolution.com.au</a>
-        </div>
-        <div class="card" style="margin-bottom:20px">
-          <div style="font-size:28px;margin-bottom:12px">📅</div>
-          <div style="font-size:13px;font-weight:700;color:var(--muted);margin-bottom:6px;letter-spacing:.5px">BOOK A CALL</div>
-          <a href="https://calendly.com/jordan-leadevolution/30min" target="_blank" style="font-size:17px;font-weight:600;color:var(--blue)">calendly.com/jordan-leadevolution</a>
-          <p style="color:var(--muted);font-size:14px;margin-top:8px">30-minute strategy session with Jordan — free, no obligation.</p>
-        </div>
-        <div class="card">
-          <div style="font-size:28px;margin-bottom:12px">⏱️</div>
-          <div style="font-size:13px;font-weight:700;color:var(--muted);margin-bottom:6px;letter-spacing:.5px">RESPONSE TIME</div>
-          <div style="font-size:17px;font-weight:600;color:white">Within 1 Business Day</div>
-          <p style="color:var(--muted);font-size:14px;margin-top:8px">Mon–Fri, 8:00am – 6:00pm AEST</p>
-        </div>
-      </div>
+      <form id="lead-form" action="https://formsubmit.co/info@leadevolution.com.au" method="POST">
+        <!-- FormSubmit configuration -->
+        <input type="hidden" name="_subject" value="🚀 New Lead Enquiry — LeadEvolution">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://leadevolution.com.au/contact.html?submitted=1">
+        <input type="hidden" name="_autoresponse" value="Thanks for reaching out to LeadEvolution.
 
-      <!-- FORM -->
-      <div>
-        <div class="form-wrap">
-          <div style="margin-bottom:28px"><h2 style="margin-bottom:8px">Send Us a Message</h2><p style="color:var(--muted);font-size:15px">Fill in the details below and we'll get back to you within one business day.</p></div>
-          <form id="contact-form" action="https://formspree.io/f/info@leadevolution.com.au" method="POST">
-            <div class="form-grid">
-              <div class="form-field"><label>First Name *</label><input type="text" name="first_name" placeholder="Jordan" required></div>
-              <div class="form-field"><label>Last Name *</label><input type="text" name="last_name" placeholder="Gomez" required></div>
-              <div class="form-field"><label>Business Name *</label><input type="text" name="business_name" placeholder="Your Company Pty Ltd" required></div>
-              <div class="form-field"><label>Email Address *</label><input type="email" name="email" placeholder="you@example.com.au" required></div>
-              <div class="form-field"><label>Phone Number *</label><input type="tel" name="phone" placeholder="04XX XXX XXX" required></div>
-              <div class="form-field"><label>State</label>
-                <select name="state">
-                  <option value="">Select state...</option>
-                  <option>Queensland</option><option>New South Wales</option><option>Victoria</option><option>Western Australia</option><option>South Australia</option><option>ACT</option><option>Tasmania</option><option>Northern Territory</option>
-                </select>
-              </div>
-              <div class="form-field form-full"><label>Vertical / Industry *</label>
-                <select name="vertical" required>
-                  <option value="">Select your industry...</option>
-                  <option>Mortgage Broking</option><option>Financial Planning / Wealth Management</option>
-                  <option>Solar Installation</option><option>Insurance Broking</option>
-                  <option>Energy Broking</option><option>Commercial Finance</option><option>Other</option>
-                </select>
-              </div>
-              <div class="form-field form-full"><label>Leads Needed Per Month</label>
-                <select name="leads_per_month">
-                  <option value="">Select volume...</option>
-                  <option>1–10 leads/month</option><option>10–25 leads/month</option>
-                  <option>25–50 leads/month</option><option>50–100 leads/month</option>
-                  <option>100+ leads/month</option>
-                </select>
-              </div>
-              <div class="form-field form-full"><label>Tell Us About Your Requirements</label><textarea name="message" placeholder="Tell us about your target market, geographic requirements, and any specific criteria for your ideal lead..."></textarea></div>
-            </div>
-            <div style="margin-top:24px">
-              <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Send Message →</button>
-              <p style="color:var(--muted);font-size:12px;text-align:center;margin-top:12px">We respect your privacy. Your information will never be shared with third parties.</p>
-            </div>
-          </form>
-          <div class="form-success" id="form-success">
-            <div style="font-size:48px;margin-bottom:16px">✅</div>
-            <h3>Message Received!</h3>
-            <p style="color:var(--muted)">Thanks for reaching out. Jordan will be in touch within one business day. In the meantime, feel free to <a href="https://calendly.com/jordan-leadevolution/30min" target="_blank" style="color:var(--blue)">book a call directly</a>.</p>
+We've received your enquiry and one of the team will be in touch within one business day to discuss your requirements — industry, volume, delivery method, and any specific qualification criteria.
+
+In the meantime, if you have any additional context you'd like to share, feel free to reply directly to this email.
+
+Talk soon,
+The LeadEvolution Team
+info@leadevolution.com.au">
+        <input type="hidden" name="_honey" value="">
+
+        <!-- STEP 1 — INDUSTRY -->
+        <div class="step-header"><span class="step-num">1</span>Your Industry</div>
+        <div class="field">
+          <label for="industry">Which industry are you buying leads for? *</label>
+          <select id="industry" name="Industry" required onchange="toggleOther(this)">
+            <option value="">Select an industry...</option>
+            <option value="Mortgage Broking">🏠 Mortgage Broking</option>
+            <option value="Financial Planning">📊 Financial Planning / Wealth Management</option>
+            <option value="Solar Installation">☀️ Solar Installation</option>
+            <option value="Insurance Broking">🛡️ Insurance Broking</option>
+            <option value="Energy Broking">⚡ Energy Broking</option>
+            <option value="Commercial Finance">🏢 Commercial Finance</option>
+            <option value="Other">Other (please specify)</option>
+          </select>
+          <div class="other-input" id="other-industry-wrap">
+            <label for="industry-other" style="margin-top:12px">Please tell us your industry</label>
+            <input type="text" id="industry-other" name="Industry (Other)" placeholder="e.g. Automotive Finance, SMSF Advice, Aged Care Services...">
           </div>
         </div>
-      </div>
+
+        <!-- STEP 2 — VOLUME + FREQUENCY -->
+        <div class="step-header"><span class="step-num">2</span>Volume &amp; Frequency</div>
+        <div class="field-row">
+          <div class="field-half">
+            <label for="volume">How many leads per period? *</label>
+            <select id="volume" name="Volume" required>
+              <option value="">Select volume...</option>
+              <option value="1–10">1–10 leads</option>
+              <option value="10–25">10–25 leads</option>
+              <option value="25–50">25–50 leads</option>
+              <option value="50–100">50–100 leads</option>
+              <option value="100–250">100–250 leads</option>
+              <option value="250+">250+ leads</option>
+            </select>
+          </div>
+          <div class="field-half">
+            <label for="frequency">How often do you need them? *</label>
+            <select id="frequency" name="Frequency" required>
+              <option value="">Select frequency...</option>
+              <option value="Daily">Daily</option>
+              <option value="Weekly">Weekly</option>
+              <option value="Fortnightly">Fortnightly</option>
+              <option value="Monthly">Monthly</option>
+              <option value="One-off campaign">One-off campaign</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- STEP 3 — DELIVERY -->
+        <div class="step-header"><span class="step-num">3</span>Delivery Method</div>
+        <div class="field">
+          <label>How would you like your leads delivered? *</label>
+          <div class="delivery-grid">
+            <label class="delivery-option" onclick="selectDelivery(this, 'CRM Drop')">
+              <input type="radio" name="Delivery Method" value="CRM Drop" required>
+              <span class="icon">🔗</span>
+              <span class="lbl">CRM Drop</span>
+              <span class="desc">Direct into your CRM via webhook or API</span>
+            </label>
+            <label class="delivery-option" onclick="selectDelivery(this, 'Email')">
+              <input type="radio" name="Delivery Method" value="Email" required>
+              <span class="icon">📧</span>
+              <span class="lbl">Email</span>
+              <span class="desc">Instant notification to your inbox</span>
+            </label>
+            <label class="delivery-option" onclick="selectDelivery(this, 'Spreadsheet')">
+              <input type="radio" name="Delivery Method" value="Spreadsheet" required>
+              <span class="icon">📊</span>
+              <span class="lbl">Spreadsheet</span>
+              <span class="desc">Daily/weekly export to Google Sheets or Excel</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- STEP 4 — YOUR DETAILS -->
+        <div class="step-header"><span class="step-num">4</span>Your Details</div>
+        <div class="field-row">
+          <div class="field-half">
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="Name" placeholder="Full name" required>
+          </div>
+          <div class="field-half">
+            <label for="email">Your Email *</label>
+            <input type="email" id="email" name="Email" placeholder="you@company.com.au" required>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Enquiry →</button>
+
+        <div class="trust-row">
+          <span>✅ Reply within 1 business day</span>
+          <span>🔒 Details stay private</span>
+        </div>
+      </form>
     </div>
+
+    <!-- SUCCESS BLOCK (shown if ?submitted=1) -->
+    <div class="lead-form-shell" id="success-block" style="display:none; margin-top: 40px; text-align:center;">
+      <div style="font-size:64px;margin-bottom:16px">✅</div>
+      <h2 style="text-align:center">Enquiry Received</h2>
+      <p class="lede" style="text-align:center">Thanks — one of the team will be in touch within one business day. A confirmation email has been sent to the address you provided.</p>
+      <p style="text-align:center;margin-top:20px"><a href="index.html" style="color:var(--blue);font-weight:700">← Back to home</a></p>
+    </div>
+
   </div>
 </div>
 
@@ -130,13 +281,41 @@
     <div class="footer-top">
       <div><div class="footer-logo">Lead<span>Evolution</span></div><p class="footer-desc">Australia's leading pay per lead agency. Exclusive, consent-based leads for financial services and home improvement sectors.</p></div>
       <div class="footer-col"><h4>Verticals</h4><a href="verticals/mortgage-broker-leads.html">Mortgage Broker Leads</a><a href="verticals/financial-planning-leads.html">Financial Planning Leads</a><a href="verticals/solar-leads.html">Solar Leads</a><a href="verticals/insurance-leads.html">Insurance Leads</a><a href="verticals/energy-leads.html">Energy Leads</a><a href="verticals/commercial-finance-leads.html">Commercial Finance</a></div>
-      <div class="footer-col"><h4>Company</h4><a href="team.html">Our Team</a><a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a></div>
-      <div class="footer-col"><h4>Legal</h4><a href="terms.html">Terms & Conditions</a><a href="privacy.html">Privacy Policy</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="team.html">Why Us</a><a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a></div>
+      <div class="footer-col"><h4>Legal</h4><a href="terms.html">Terms &amp; Conditions</a><a href="privacy.html">Privacy Policy</a></div>
     </div>
     <div class="footer-bottom"><p>© 2026 LeadEvolution. A trading name of Artificial Innovations Pty Ltd (ABN 53 677 049 946).</p><div class="footer-links"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a></div></div>
   </div>
 </footer>
 <script src="main.js"></script>
-<style>@media(max-width:768px){.section .section-inner>div{grid-template-columns:1fr!important}}</style>
+<script>
+function toggleOther(sel) {
+  var wrap = document.getElementById('other-industry-wrap');
+  var other = document.getElementById('industry-other');
+  if (sel.value === 'Other') {
+    wrap.classList.add('show');
+    other.setAttribute('required', 'required');
+  } else {
+    wrap.classList.remove('show');
+    other.removeAttribute('required');
+    other.value = '';
+  }
+}
+function selectDelivery(el, val) {
+  document.querySelectorAll('.delivery-option').forEach(function(o) { o.classList.remove('active'); });
+  el.classList.add('active');
+}
+// Show success block if we returned from a submit
+(function() {
+  var q = window.location.search;
+  if (q.indexOf('submitted=1') !== -1) {
+    document.getElementById('lead-form').style.display = 'none';
+    document.querySelector('.lead-form-shell').style.display = 'none';
+    document.getElementById('success-block').style.display = 'block';
+    document.querySelector('.page-hero .page-hero-inner h1').innerHTML = 'Thanks — <em>You\'re In</em>';
+    document.querySelector('.page-hero .page-hero-inner p').textContent = "We've got your details and will be in touch within one business day.";
+  }
+})();
+</script>
 </body>
 </html>
