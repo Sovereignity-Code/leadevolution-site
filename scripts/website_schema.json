@@ -1,0 +1,11 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "LeadEvolution",
+  "url": "https://leadevolution.com.au",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://leadevolution.com.au/contact.html",
+    "query-input": "required name=search_term_string"
+  }
+}
