@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CPA vs CPL — How Australian Brokers Should Actually Model Lead ROI</title>
+<meta name="description" content="Cost per lead is a sticker price. Cost per acquisition is a business. Full modelling framework with sensitivity analysis and break-even calculation for lead-fed brokerages.">
+<link rel="canonical" href="https://leadevolution.com.au/guides/cpa-vs-cpl-modelling-for-lead-fed-brokerages.html">
+<meta property="og:title" content="CPA vs CPL — How Australian Brokers Should Actually Model Lead ROI">
+<meta property="og:description" content="Cost per lead is a sticker price. Cost per acquisition is a business. Full modelling framework with sensitivity analysis and break-even calculation for lead-fed brokerages.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://leadevolution.com.au/guides/cpa-vs-cpl-modelling-for-lead-fed-brokerages.html">
+<meta property="og:site_name" content="LeadEvolution">
+<meta property="og:locale" content="en_AU">
+<meta property="og:image" content="https://leadevolution.com.au/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CPA vs CPL — How Australian Brokers Should Actually Model Lead ROI">
+<meta name="twitter:description" content="Cost per lead is a sticker price. Cost per acquisition is a business. Full modelling framework with sensitivity analysis and break-even calculation for lead-fed brokerages.">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "LeadEvolution",
+  "url": "https://leadevolution.com.au",
+  "logo": "https://leadevolution.com.au/images/logo.png",
+  "email": "info@leadevolution.com.au"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "CPA vs CPL \u2014 How Australian Brokers Should Actually Model Lead ROI",
+  "description": "Cost per lead is a sticker price. Cost per acquisition is a business. Full modelling framework with sensitivity analysis and break-even calculation for lead-fed brokerages.",
+  "author": {
+    "@type": "Organization",
+    "name": "LeadEvolution"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LeadEvolution",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://leadevolution.com.au/images/logo.png"
+    }
+  },
+  "datePublished": "2026-07-24",
+  "dateModified": "2026-07-24",
+  "mainEntityOfPage": "https://leadevolution.com.au/guides/cpa-vs-cpl-modelling-for-lead-fed-brokerages.html"
+}</script>
+<style>
+  .article-body { max-width: 780px; margin: 0 auto; }
+  .article-body h2 { font-size: 28px; margin: 44px 0 16px; letter-spacing: -0.5px; }
+  .article-body h3 { font-size: 20px; margin: 32px 0 12px; color: #fff; font-weight: 700; }
+  .article-body p { color: var(--muted); font-size: 17px; line-height: 1.85; margin-bottom: 18px; }
+  .article-body ul, .article-body ol { color: var(--muted); font-size: 17px; line-height: 1.85; padding-left: 22px; margin-bottom: 20px; }
+  .article-body ul li, .article-body ol li { margin-bottom: 10px; }
+  .article-body strong { color: #fff; }
+  .article-body table { width: 100%; border-collapse: collapse; margin: 24px 0; background: rgba(255,255,255,0.03); border-radius: 12px; overflow: hidden; }
+  .article-body th, .article-body td { padding: 14px 18px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 15px; color: var(--muted); }
+  .article-body th { background: rgba(37,99,235,0.15); color: #fff; font-weight: 700; letter-spacing: 0.02em; }
+  .article-body td:first-child { color: #fff; font-weight: 500; }
+  .article-body .callout { background: rgba(37,99,235,0.08); border-left: 3px solid var(--blue); padding: 20px 24px; margin: 24px 0; border-radius: 6px; color: #fff; }
+  .article-body .callout p { color: rgba(255,255,255,0.9); margin: 0; font-size: 16px; }
+  .article-body .verdict { background: linear-gradient(135deg, rgba(37,99,235,0.18), rgba(74,126,255,0.08)); border: 1px solid rgba(37,99,235,0.3); border-radius: 14px; padding: 28px 32px; margin: 40px 0; }
+  .article-body .verdict h3 { margin-top: 0; color: #fff; font-size: 22px; }
+  .article-body .verdict p { color: rgba(255,255,255,0.9); }
+  .article-meta { display: flex; gap: 20px; color: rgba(255,255,255,0.5); font-size: 14px; margin-bottom: 32px; }
+  .article-meta span::before { content: '• '; margin: 0 4px; color: rgba(255,255,255,0.3); }
+  .article-meta span:first-child::before { content: ''; margin: 0; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">Lead<span>Evolution</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html" class="nav-link">Home</a>
+      <div class="dropdown"><span class="nav-link">Verticals ▾</span><div class="dropdown-menu"><a href="../verticals/mortgage-broker-leads.html" class="dropdown-item">🏠 Mortgage Broker Leads</a><a href="../verticals/financial-planning-leads.html" class="dropdown-item">📊 Financial Planning Leads</a><a href="../verticals/solar-leads.html" class="dropdown-item">☀️ Solar Leads</a><a href="../verticals/insurance-leads.html" class="dropdown-item">🛡️ Insurance Broker Leads</a><a href="../verticals/energy-leads.html" class="dropdown-item">⚡ Energy Broker Leads</a><a href="../verticals/commercial-finance-leads.html" class="dropdown-item">🏢 Commercial Finance Leads</a></div></div>
+      <a href="../resources.html" class="nav-link">Resources</a>
+      <a href="../faq.html" class="nav-link">FAQ</a>
+      <a href="../team.html" class="nav-link">Why Us</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+      <a href="../contact.html" class="nav-link nav-cta">Get Started →</a>
+    </div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html" class="mobile-link">Home</a>
+  <a href="../verticals/mortgage-broker-leads.html" class="mobile-link">🏠 Mortgage Broker Leads</a>
+  <a href="../verticals/financial-planning-leads.html" class="mobile-link">📊 Financial Planning Leads</a>
+  <a href="../verticals/solar-leads.html" class="mobile-link">☀️ Solar Leads</a>
+  <a href="../verticals/insurance-leads.html" class="mobile-link">🛡️ Insurance Broker Leads</a>
+  <a href="../verticals/energy-leads.html" class="mobile-link">⚡ Energy Broker Leads</a>
+  <a href="../verticals/commercial-finance-leads.html" class="mobile-link">🏢 Commercial Finance Leads</a>
+  <a href="../resources.html" class="mobile-link">Resources</a>
+  <a href="../faq.html" class="mobile-link">FAQ</a>
+  <a href="../team.html" class="mobile-link">Why Us</a>
+  <a href="../contact.html" class="mobile-link">Contact</a>
+  <a href="../contact.html" class="mobile-cta">Get Started →</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-label">Buyer's Guide</div>
+    <h1>CPA vs CPL — How Australian Brokers Should Actually Model Lead ROI</h1>
+  </div>
+</div>
+
+<div class="section" style="padding-top:24px">
+  <div class="section-inner">
+    <div class="article-body">
+
+<div class="article-meta"><span>Guide</span><span>9 min read</span><span>Financial modelling</span></div>
+
+<p>Cost per lead is the price on the sales page. Cost per acquisition is the number that determines whether you have a business. Confusing the two — or worse, only tracking CPL — is one of the more expensive mistakes in the lead-fed brokerage world.</p>
+
+<p>This guide walks through how to build an honest CPA model for a pay-per-lead engagement, what the sensitivity levers are, and how to translate that into a decision on which suppliers to expand with versus cut.</p>
+
+<h2>The two numbers, defined</h2>
+
+<h3>Cost per lead (CPL)</h3>
+
+<p>The unit price you pay for a delivered lead, regardless of whether that lead converts to anything downstream. If a supplier charges $200 per delivered mortgage lead, your CPL is $200. Nothing else.</p>
+
+<h3>Cost per acquisition (CPA)</h3>
+
+<p>The total lead spend required to produce one settled customer, active policy, or installed system. If it takes 8 leads to settle 1 mortgage, your CPA is $200 × 8 = $1,600.</p>
+
+<p>CPA is what matters. CPL is the input, but every downstream conversion assumption multiplies its effect on CPA.</p>
+
+<h2>The CPA formula, with every variable named</h2>
+
+<p>CPA = CPL ÷ (contact_rate × conversation_rate × appointment_rate × show_rate × application_rate × settlement_rate)</p>
+
+<p>That looks like a lot. Most brokers collapse it to CPA = CPL ÷ overall_settlement_rate. Both are valid — the multi-variable version is more useful for diagnosing <em>where</em> a bad CPA comes from.</p>
+
+<h2>Worked example — mortgage broker</h2>
+
+<p>Assume:</p>
+<ul>
+  <li>CPL: $200</li>
+  <li>Contact rate: 82%</li>
+  <li>Meaningful conversation rate: 78%</li>
+  <li>Appointment rate: 45%</li>
+  <li>Show rate: 70%</li>
+  <li>Application rate: 60%</li>
+  <li>Settlement rate on applications: 65%</li>
+</ul>
+
+<p>Overall settlement rate = 0.82 × 0.78 × 0.45 × 0.70 × 0.60 × 0.65 = 7.9%.</p>
+
+<p>CPA = $200 ÷ 0.079 = $2,532.</p>
+
+<p>Against an average commission of $2,400 upfront + $1,800 trail (present-valued over 4 years), gross margin per settlement is $1,668. Positive, but tight.</p>
+
+<h2>Sensitivity analysis — which lever moves CPA most?</h2>
+
+<p>Using the example above, let's see what happens if each variable moves 10% in either direction:</p>
+
+<table>
+<thead>
+<tr><th>Lever</th><th>Baseline</th><th>+10%</th><th>-10%</th><th>CPA impact of 10% swing</th></tr>
+</thead>
+<tbody>
+<tr><td>CPL</td><td>$200</td><td>$220</td><td>$180</td><td>±$253</td></tr>
+<tr><td>Contact rate</td><td>82%</td><td>90%</td><td>74%</td><td>±$253</td></tr>
+<tr><td>Meaningful conversation rate</td><td>78%</td><td>86%</td><td>70%</td><td>±$253</td></tr>
+<tr><td>Appointment rate</td><td>45%</td><td>50%</td><td>41%</td><td>±$253</td></tr>
+<tr><td>Show rate</td><td>70%</td><td>77%</td><td>63%</td><td>±$253</td></tr>
+<tr><td>Application rate</td><td>60%</td><td>66%</td><td>54%</td><td>±$253</td></tr>
+<tr><td>Settlement rate</td><td>65%</td><td>72%</td><td>59%</td><td>±$253</td></tr>
+</tbody>
+</table>
+
+<p>Every 10% move in any variable is worth about $253 in CPA. That looks even, but in practice some levers are much easier to move than others.</p>
+
+<h2>Which levers you actually control</h2>
+
+<h3>Broker-controlled levers (fastest to improve)</h3>
+
+<ul>
+  <li>Contact rate — call cadence and time-of-day discipline</li>
+  <li>Appointment rate — script and objection handling</li>
+  <li>Show rate — confirmation touches between booking and meeting</li>
+  <li>Application rate — meeting preparation and product fit</li>
+</ul>
+
+<h3>Supplier-controlled levers</h3>
+
+<ul>
+  <li>CPL — negotiated at contract</li>
+  <li>Meaningful conversation rate — a function of consent quality and prospect freshness</li>
+</ul>
+
+<h3>Uncontrollable levers</h3>
+
+<ul>
+  <li>Settlement rate on applications — depends on serviceability, lender appetite, macro rate cycle</li>
+</ul>
+
+<p>The most common trap is trying to negotiate CPL down when the real problem is contact rate — which is a supplier quality issue that discounting won't fix.</p>
+
+<h2>The break-even calculation</h2>
+
+<p>Every broker should know their break-even CPA — the point at which lead spend equals gross margin per settlement.</p>
+
+<p>Break-even CPA = average deal value net of variable costs.</p>
+
+<p>For a mortgage broker with $2,400 upfront + $1,800 present-valued trail, break-even is $4,200 CPA. Anything below that produces margin; anything above burns money.</p>
+
+<p>Most healthy PPL engagements run at 40-60% of break-even CPA. That leaves margin for overhead, salaries, and profit.</p>
+
+<h2>Modelling supplier tests</h2>
+
+<p>When testing a new supplier, run the math both ways:</p>
+
+<h3>Optimistic scenario</h3>
+
+<p>Assume the supplier hits vertical benchmark on every metric. Calculate CPA. If this scenario is above break-even, don't test — the supplier can't ever be profitable.</p>
+
+<h3>Realistic scenario</h3>
+
+<p>Discount every conversion assumption by 20%. Recalculate. If this is still above 70% of break-even, the supplier has almost no margin for error.</p>
+
+<h3>Pessimistic scenario</h3>
+
+<p>Discount every conversion assumption by 40%. Recalculate. This is your worst-case CPA — the number that matters if you commit budget and hope you can improve conversion later.</p>
+
+<h2>What most brokers get wrong</h2>
+
+<p>Three consistent errors:</p>
+
+<ul>
+  <li><strong>Comparing suppliers on CPL only.</strong> A $80 supplier is not cheaper than a $200 supplier if the $80 leads have a 5% contact rate and the $200 leads have 82%. CPA is what you compare, always.</li>
+  <li><strong>Not decomposing the funnel.</strong> "My CPA went up" is not diagnostic. "My contact rate dropped 15 points and my appointment rate is stable" tells you the supplier is delivering worse consent or older leads.</li>
+  <li><strong>Ignoring trail value.</strong> For any vertical with trail commissions (mortgage, insurance, some financial advice), the deal value on your CPA model should be present-valued upfront + trail, not just upfront. Ignoring trail undervalues good leads and overvalues cheap ones.</li>
+</ul>
+
+<h2>The 90-day supplier review template</h2>
+
+<p>At day 90 of any new PPL engagement, run this review with the supplier:</p>
+
+<ol>
+  <li>Actual leads delivered vs contracted volume</li>
+  <li>Contact rate actual vs vertical benchmark</li>
+  <li>Meaningful conversation rate actual vs benchmark</li>
+  <li>Settlement rate on completed pipeline (trailing 60 days)</li>
+  <li>Effective CPA vs modelled CPA</li>
+  <li>Effective CPA vs break-even CPA</li>
+</ol>
+
+<p>If effective CPA is under 60% of break-even, expand volume. If it's between 60-90%, hold and optimise. If it's over 90%, either the supplier is wrong for you or your downstream sales process is wrong for the leads. Diagnose which before renewing.</p>
+
+
+      <div class="verdict">
+        <h3>Ready to move?</h3>
+        <p>LeadEvolution runs the exclusive, consent-based model described above across six Australian verticals. If you'd like to see how it works for your pipeline, tell us your industry and volume — we'll come back inside one business day.</p>
+        <div style="margin-top:20px"><a href="../contact.html" class="btn btn-primary">Get Started →</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-logo">Lead<span>Evolution</span></div><p class="footer-desc">Australia's specialist pay per lead agency. Exclusive, consent-based leads across six verticals.</p></div>
+      <div class="footer-col"><h4>Verticals</h4><a href="../verticals/mortgage-broker-leads.html">Mortgage Broker Leads</a><a href="../verticals/financial-planning-leads.html">Financial Planning Leads</a><a href="../verticals/solar-leads.html">Solar Leads</a><a href="../verticals/insurance-leads.html">Insurance Leads</a><a href="../verticals/energy-leads.html">Energy Leads</a><a href="../verticals/commercial-finance-leads.html">Commercial Finance</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="../resources.html">Resources</a><a href="../team.html">Why Us</a><a href="../faq.html">FAQ</a><a href="../contact.html">Contact Us</a></div>
+      <div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms &amp; Conditions</a><a href="../privacy.html">Privacy Policy</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 LeadEvolution. A trading name of Artificial Innovations Pty Ltd (ABN 53 677 049 946).</p><div class="footer-links"><a href="../terms.html">Terms</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></div></div>
+  </div>
+</footer>
+<script src="../main.js"></script>
+</body>
+</html>
