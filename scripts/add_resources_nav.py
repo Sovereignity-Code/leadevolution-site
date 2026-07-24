@@ -86,7 +86,7 @@ print(f"[✓] added Resources nav link to {touched} pages")
 # Rebuild sitemap including resources.html
 today = datetime.utcnow().strftime("%Y-%m-%d")
 base_pages = [
-    "/", "/faq.html", "/team.html", "/contact.html", "/resources.html",
+    "/", "/faq.html", "/team.html", "/contact.html", "/resources.html", "/how-we-qualify.html",
     "/privacy.html", "/terms.html",
     "/verticals/mortgage-broker-leads.html",
     "/verticals/financial-planning-leads.html",

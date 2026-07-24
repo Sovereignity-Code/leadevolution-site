@@ -281,7 +281,7 @@ body_2 = """
 
 <p>A consent-based lead is one where the prospect has explicitly agreed to be contacted about a <strong>specific product category</strong> by a <strong>specific type of professional</strong>, with the agreement <strong>timestamped and stored</strong> so it can be produced under audit.</p>
 
-<p>In our own model, that means a live conversation where the prospect confirms three things:</p>
+<p>In our own model, that agreement is captured through a live AI voice qualification call. The prospect confirms three things during the conversation:</p>
 
 <ul>
   <li>They are actively interested in the product category (mortgage, financial advice, solar, insurance, energy, commercial finance)</li>
@@ -289,7 +289,25 @@ body_2 = """
   <li>They have been shown who the company is and how their data will be used</li>
 </ul>
 
-<p>Each of those confirmations is captured, timestamped, and stored against the lead record. That paperwork is what the difference between "we think it was compliant" and "we can prove it was compliant" comes down to.</p>
+<p>Each of those confirmations is captured, timestamped, and stored against the lead record — <strong>as audio, transcript, and structured data all at once</strong>. That's the difference between "we think it was compliant" and "we can prove it was compliant."</p>
+
+<h2>The evidence hierarchy — from weakest to strongest</h2>
+
+<p>Not all consent is equal in a regulator's eyes. The evidentiary weight of the different consent formats currently in market:</p>
+
+<table>
+<thead>
+<tr><th>Consent format</th><th>Evidence weight</th><th>Why</th></tr>
+</thead>
+<tbody>
+<tr><td>Form checkbox on a landing page</td><td>Weakest</td><td>Prospect may not have read the clause. Consent language is often blanket. Frequently resold across dozens of buyers.</td></tr>
+<tr><td>Manual double-opt-in email</td><td>Weak-to-medium</td><td>Establishes the email was accessed but not that the person understood what they were agreeing to.</td></tr>
+<tr><td>Human phone call with text-note record</td><td>Medium</td><td>Real conversation, but the record is a note written by an incentivised human. Hard to defend if challenged.</td></tr>
+<tr><td>AI voice qualification with audio + transcript</td><td>Strongest</td><td>The prospect's own voice, on record, timestamped, tied to the phone number, with a machine-generated transcript for search and audit. Immutable and verifiable.</td></tr>
+</tbody>
+</table>
+
+<p>When an ACMA investigator asks "produce the consent record for this call," the answer format matters as much as the content. A blanket checkbox screenshot is a signal you tried; a full audio recording of the prospect saying "yes, please have a mortgage broker call me" is a signal you documented.</p>
 
 <h2>The regulatory picture in 2026</h2>
 
@@ -448,87 +466,135 @@ build(
 )
 
 
-# --- 4. AI-Qualified vs Cold Lists ---
+# --- 4. AI-Qualified vs Cold Lists (REFRAMED) ---
 body_4 = """
-<div class="article-meta"><span>Comparison</span><span>7 min read</span><span>For sales teams</span></div>
+<div class="article-meta"><span>Comparison</span><span>10 min read</span><span>How modern lead qualification actually works</span></div>
 
-<p>If you've bought a list of "10,000 verified Australian mortgage prospects" for $500, you've bought cold data. If you've bought a supplier's "AI-qualified" leads for $180 each, you've bought something different — the question is <em>how</em> different, and whether the price gap is justified.</p>
+<p>Most Australian brokers still think of "cold data" and "qualified leads" as two separate products. That framing is a decade out of date. The real question in 2026 isn't whether to use cold data or qualified leads — it's <strong>who is doing the qualification, and can they prove it happened.</strong></p>
 
-<p>This piece breaks down what actually happens in each model, what "AI-qualified" honestly means, and where each fits (or doesn't) in a real Australian sales pipeline.</p>
+<p>This piece breaks down the two ways cold data actually gets converted into a broker-ready pipeline: the legacy human-dial model, and the modern AI voice qualification model. The compliance and quality gap between them is the biggest change to Australian lead generation since the introduction of the Do Not Call Register.</p>
 
-<h2>What cold data lists actually are</h2>
+<h2>What cold data actually is (and isn't)</h2>
 
-<p>A cold data list is a spreadsheet of contact details compiled from public records, scraped websites, expired form-fill data, or purchased from third-party data brokers. Common characteristics:</p>
+<p>A cold data list is a raw substrate — thousands of Australian contacts compiled from public records, business databases, industry registries, or purchased datasets. Cold data on its own is not a lead. It's a candidate pool.</p>
+
+<p>Everyone in the market — every provider you're comparing, every agency, every in-house team — starts from some form of cold data. The differentiator is what happens between "raw record in a spreadsheet" and "broker-ready qualified lead in your CRM."</p>
+
+<p>Two things can happen next: a human phones the record, or an AI voice agent phones the record. Everything downstream flows from that single choice.</p>
+
+<h2>The legacy model — cold data + human callers</h2>
+
+<p>Until recently, converting cold data into a qualified lead meant paying a human calling centre to dial through the list, ask a scripted set of qualification questions, tick boxes on a CRM, and hand the "qualified" record over to the broker.</p>
+
+<p>This model has three structural weaknesses that no amount of process discipline fully fixes:</p>
+
+<h3>The consent trail is a text note</h3>
+
+<p>A human caller writes something like <em>"prospect confirmed interest in refinance, said yes to broker contact."</em> That note is the entire compliance record. There is no audio, no transcript, no timestamp granularity beyond when the note was saved. If ACMA ever asks for evidence that consent was properly captured, you have a text field written by an incentivised employee. That's not evidence — that's a claim.</p>
+
+<h3>The qualification is only as honest as the human</h3>
+
+<p>Calling centre agents are typically paid per qualified lead they produce. That creates a direct financial incentive to record ambiguous conversations as strong intent. A prospect who said "maybe, send me some info" can easily become "actively looking, ready to talk to a broker." The broker on the receiving end has no way to verify.</p>
+
+<h3>The delivery is inconsistent</h3>
+
+<p>Human callers have good days and bad days. Scripts get shortened when the caller is tired. Compliance disclaimers get skipped when the call is running long. Two prospects who filled the same criteria can be qualified very differently by two different agents on two different shifts.</p>
+
+<h2>The modern model — cold data + AI voice qualification</h2>
+
+<p>AI voice qualification replaces the human calling centre with an autonomous voice AI agent. The agent phones the prospect, holds the qualification conversation, captures explicit consent, and passes only genuinely interested prospects through as broker-ready leads.</p>
+
+<p>The mechanics look similar on the surface. The compliance, quality, and consistency implications are radically different.</p>
+
+<h3>Every conversation is recorded and transcribed</h3>
+
+<p>The AI voice agent produces a full audio recording of the call plus a machine-generated transcript. Every consent confirmation is captured in the prospect's own voice, timestamped to the millisecond, tied to the phone number, and stored against the lead record. There is no "note" — there is <strong>evidence</strong>.</p>
+
+<h3>The AI has no incentive to fake anything</h3>
+
+<p>A voice AI is not paid per qualified lead. It doesn't hit sales targets. It doesn't have a mortgage of its own to worry about. It asks the same questions the same way every time and records the answers faithfully. A "not interested" stays as a "not interested" — because there's no human upside to marking it otherwise.</p>
+
+<h3>Consistency is architectural, not aspirational</h3>
+
+<p>The 500th prospect the AI qualifies on a Friday afternoon gets exactly the same script, the same disclaimers, the same consent capture flow as the first prospect Monday morning. There are no shortcuts, no bad days, no drift. Quality holds because the process is code, not people.</p>
+
+<h2>The compliance-by-construction argument</h2>
+
+<p>Australia's regulatory framework for outbound contact — the Privacy Act 1988, the Spam Act 2003, the Do Not Call Register scheme — assumes that the party contacting a prospect can <strong>produce evidence</strong> of consent if challenged. In a human-qualified model, that evidence is a text note. In an AI-qualified model, that evidence is a signed digital record.</p>
+
+<p>The regulatory implications:</p>
 
 <ul>
-  <li>Volume is high — thousands to hundreds of thousands of records</li>
-  <li>Unit cost is very low — often under 20 cents per contact</li>
-  <li>No consent has been obtained for you to contact the prospect</li>
-  <li>Data quality decays fast — 15-30% bounce rate on emails, 10-20% wrong number rate on phones</li>
-  <li>DNCR status of each record is your problem to check</li>
+  <li><strong>ACMA investigations:</strong> a request for "the consent record for this phone number" can be answered in seconds — audio file, transcript, timestamp, DNCR check evidence. Everything a regulator would demand, produced without a human digging through call notes.</li>
+  <li><strong>OAIC privacy complaints:</strong> the prospect's own voice confirming they agreed to be contacted eliminates ambiguity. Complaints resolve faster and with less exposure.</li>
+  <li><strong>ASIC audits of lead-source practices:</strong> for regulated advice (mortgage, financial planning, insurance), being able to demonstrate that leads reached your business through a documented, consistent, non-coercive consent process is exactly what ASIC's general conduct obligation expects.</li>
 </ul>
 
-<h2>What "AI-qualified" actually means (honest version)</h2>
+<div class="callout"><p>The compliance advantage of AI qualification is not that it's harder to breach the rules — it's that when questions come up, the answer is a file, not a story.</p></div>
 
-<p>The industry has stretched the term "AI-qualified" to mean almost anything. Here's what it actually covers in practice:</p>
-
-<h3>The rules-engine layer</h3>
-
-<p>Most "AI qualification" is a scored rules engine — a prospect's profile is checked against criteria (postcode, income band, loan amount, timeframe) and either passes or fails. This is not machine learning. It's just filtering. It works, but calling it "AI" is marketing.</p>
-
-<h3>The conversational layer</h3>
-
-<p>Some providers use LLM-based systems (or human-augmented equivalents) to conduct a short qualifying conversation before delivering the lead. This is closer to real AI — the system adapts to the prospect's answers and follows up. Done well, it materially improves qualification quality. Done poorly, it produces surreal-sounding scripts.</p>
-
-<h3>The human-final layer</h3>
-
-<p>The best operators (us included) use rules + AI for initial filtering and then have a human on a live phone call before the lead is passed. AI does the volume screening; humans confirm the intent and consent. This hybrid model is what "AI-qualified" should really mean.</p>
-
-<h2>Comparison on the metrics that matter</h2>
+<h2>Side-by-side on what actually matters</h2>
 
 <table>
 <thead>
-<tr><th>Metric</th><th>Cold data list</th><th>AI-qualified (real hybrid)</th></tr>
+<tr><th>Attribute</th><th>Cold data + human dial</th><th>Cold data + AI voice qualification</th></tr>
 </thead>
 <tbody>
-<tr><td>Cost per contact</td><td>$0.05 – $0.30</td><td>$150 – $300</td></tr>
-<tr><td>Contact answer rate</td><td>8-15%</td><td>75-90%</td></tr>
-<tr><td>Meaningful conversation rate</td><td>1-3% of dials</td><td>60-80% of dials</td></tr>
-<tr><td>Consent status</td><td>None</td><td>Explicit, timestamped</td></tr>
-<tr><td>DNCR compliance</td><td>Buyer's problem</td><td>Provider's problem</td></tr>
-<tr><td>Time to first meaningful call</td><td>2+ hours of dialling</td><td>15 minutes</td></tr>
-<tr><td>Fit for regulated verticals (finance, insurance)</td><td>High risk</td><td>Designed for it</td></tr>
+<tr><td>Consent evidence format</td><td>Text note</td><td>Audio + transcript + timestamp</td></tr>
+<tr><td>Auditability</td><td>Claim-based</td><td>Evidence-based</td></tr>
+<tr><td>Consistency across shifts</td><td>Variable</td><td>Uniform</td></tr>
+<tr><td>Incentive to overstate intent</td><td>High (paid per lead)</td><td>None</td></tr>
+<tr><td>Retrieval time for a compliance request</td><td>Hours or days</td><td>Seconds</td></tr>
+<tr><td>DNCR check at qualification</td><td>Manual, often skipped under time pressure</td><td>Automated, always performed</td></tr>
+<tr><td>Speed to first qualified lead</td><td>Days (waiting on human capacity)</td><td>Hours</td></tr>
+<tr><td>Scaling curve</td><td>Linear — needs more humans</td><td>Non-linear — capacity is infrastructure</td></tr>
 </tbody>
 </table>
 
-<h2>The time cost nobody prices in</h2>
+<h2>Why "AI-qualified" has been diluted as a term</h2>
 
-<p>Cold lists look cheap because the sticker price is low. But a broker dialling a cold list at a 10% answer rate needs 10 dials for every conversation. Ten dials at 45 seconds each plus 30-second gaps between them is 12 minutes per meaningful conversation.</p>
+<p>Because the phrase carries weight, plenty of operators have started calling everything they do "AI-qualified" when the AI content is minimal. To separate real from marketing, it helps to know what the term should mean.</p>
 
-<p>Now compare with an AI-qualified lead at 80% answer rate: 1.25 dials per meaningful conversation, roughly 90 seconds. A broker earning $150/hour of effective time is losing $27 in labour per meaningful conversation on cold data before they've said a single word about a mortgage.</p>
+<h3>What it should not mean</h3>
 
-<h2>When cold data still makes sense</h2>
+<p>A rules engine that scores prospects against criteria before they're phoned by a human is not AI qualification. That's just filtering. It's useful, but it's not what most brokers hear when they see "AI-qualified" on a supplier's website.</p>
 
-<p>Two cases:</p>
+<h3>What it should mean</h3>
+
+<p>An autonomous voice AI agent holds a real conversation with the prospect, captures consent in the prospect's own voice, records the interaction end-to-end, and only forwards leads that meet the agreed criteria. Audio, transcript, and structured data all attached to the lead record. That's what qualification means when the label is accurate.</p>
+
+<h2>How LeadEvolution runs the model</h2>
+
+<p>We source targeted data from Australian business databases and consumer registries. Our proprietary AI voice qualification system then dials each prospect, conducts a short scripted conversation, and either:</p>
 
 <ul>
-  <li><strong>Direct mail campaigns.</strong> If you're mailing physical letters, cold data is the right substrate — you're not phoning anyone, you're relying on the recipient to respond. DNCR doesn't apply to mail.</li>
-  <li><strong>LinkedIn / email nurture with proper opt-in flow.</strong> Cold data can feed an outbound sequence that begins with a low-pressure email or LinkedIn message. If the prospect engages, they've opted themselves in. This works for B2B, not consumer.</li>
+  <li><strong>Passes them to a broker as a qualified lead</strong> — with full audio, transcript, DNCR check timestamp, and structured qualification data attached — <em>or</em></li>
+  <li><strong>Politely closes the conversation</strong> without ever creating a "lead" that shouldn't exist</li>
 </ul>
 
-<p>Outside these cases — particularly for consumer verticals like mortgage, solar, insurance, and financial advice — cold data lists in 2026 are more of a legal liability than a lead source.</p>
+<p>Every qualified lead delivered to a broker carries its own audit trail. If any prospect later disputes consent, the recording answers the question. If ACMA asks how a specific number ended up being contacted, the record is one query away. That's the whole point.</p>
+
+<h2>When cold data alone still makes sense</h2>
+
+<p>Two cases where <strong>unqualified</strong> cold data lists remain a legitimate purchase:</p>
+
+<ul>
+  <li><strong>Direct mail campaigns.</strong> Mail doesn't fall under DNCR. If you're posting physical letters, cold data is the right substrate.</li>
+  <li><strong>B2B email nurture with proper opt-in flow.</strong> Cold data can seed an outbound sequence that begins with a low-pressure email inviting the prospect to opt themselves in. Works for B2B, not consumer.</li>
+</ul>
+
+<p>Outside these cases — particularly for consumer verticals like mortgage, insurance, solar, and financial advice — cold data lists dialled directly by humans in 2026 sit on the wrong side of every trend line in Australian consumer regulation. The market is moving to AI voice qualification precisely because the compliance and quality math has become one-sided.</p>
 
 <h2>The bottom line</h2>
 
-<p>Cold data is a stockpile. AI-qualified leads are a pipeline. The price gap between them reflects an entirely different economic contract: one is you buying data and doing the work, the other is a supplier doing the work and delivering the result.</p>
+<p>Cold data + human dial is a legacy model with structural compliance weaknesses that no amount of process discipline eliminates. Cold data + AI voice qualification is a modern model with the audit trail built into the architecture.</p>
 
-<p>For any broker who values their time — and their ACMA exposure — the hybrid AI-qualified model is a materially better use of budget than paying for a spreadsheet of names.</p>
+<p>For any broker whose business depends on defensible pipeline hygiene — and in 2026 that's every broker — the AI-qualified model is not just faster or cheaper, it's <em>the</em> model that survives regulatory scrutiny.</p>
 """
 
 build(
     "compare/ai-qualified-vs-cold-lists.html",
-    "AI-Qualified Leads vs Cold Data Lists — What You're Really Paying For",
-    "What AI qualification actually means, why cold lists are cheap for a reason, and the real time-cost calculation Australian brokers should run before choosing.",
+    "AI Voice Qualification vs Human-Dialled Cold Lists — Compliance & Quality Reality",
+    "Cold data + human dial is the legacy model. Cold data + AI voice qualification is compliance by construction. Full breakdown for Australian brokers evaluating lead sources.",
     body_4,
     section_label="Comparison"
 )
@@ -568,9 +634,13 @@ body_5 = """
 
 <p>Straight yes/no. If shared, how many buyers per lead? If exclusive, is that written into the contract? Ask to see the specific clause.</p>
 
-<h3>3. How is consent captured?</h3>
+<h3>3. How is consent captured, and in what format is the evidence stored?</h3>
 
-<p>The specific process. Is it a checkbox on a landing page? A live phone call? An SMS confirmation? Can you get a copy of the consent record for any lead delivered?</p>
+<p>Two questions really. First, the mechanism: is it a checkbox on a landing page, an SMS confirmation, a human phone call, or an AI voice qualification? Second, the evidence format: text notes, or audio + transcript + timestamp?</p>
+
+<p>The strongest possible answer is <strong>AI voice qualification with full audio recording + machine-generated transcript + DNCR check timestamp attached to every lead record</strong>. That gives you immutable evidence in the prospect's own voice, retrievable in seconds if a regulator ever asks. Weaker consent formats — form checkboxes, blanket clauses, "we noted the call" — become expensive when challenged.</p>
+
+<p>Ask the provider to walk you through what happens if you request the consent record for a specific lead delivered 30 days ago. If they can produce audio and transcript in under 60 seconds, you're dealing with a serious operator. If they need "a few days to check with the calling team," you're not.</p>
 
 <h3>4. Are leads DNCR-checked at delivery?</h3>
 
@@ -792,6 +862,8 @@ body_6 = """
 <h2>The two-minute audit test</h2>
 
 <p>Pick any lead you called yesterday. Can you produce, in under two minutes: the consent record, the DNCR check timestamp, the source of the lead, and the call log? If yes, you're in a defensible position. If no, you have work to do — and the fix is almost always to demand better documentation from your lead provider, not to do the work yourself after the fact.</p>
+
+<p>The gold-standard evidence for the consent side of that test is an audio recording of the prospect confirming interest and agreeing to be contacted. Providers running AI voice qualification produce this recording plus a machine-generated transcript for every single lead. Providers relying on human calling centres typically produce a text note written by the caller — which regulators treat as far weaker evidence. When you pressure-test a lead provider, always ask for the consent record in the strongest available format.</p>
 """
 
 build(
@@ -1259,4 +1331,151 @@ build(
 )
 
 
-print("\n[DONE] all 4 comparison + 5 guide pages built")
+# ========================================================================
+# HOW WE QUALIFY — dedicated authority page
+# ========================================================================
+
+body_10 = """
+<div class="article-meta"><span>Our Process</span><span>Every lead, every time</span></div>
+
+<p>Every broker who has ever bought leads eventually asks the same question: <em>how do you actually decide who gets forwarded to me?</em> This page is the honest, end-to-end walkthrough of how LeadEvolution qualifies each lead we deliver — the technology, the audit trail, and the reason we built the model this way.</p>
+
+<h2>Why we built an AI voice qualification system</h2>
+
+<p>When we started LeadEvolution, we spent time inside the two dominant lead-generation models: human-dialled cold data and form-fill funnels. Both had the same fundamental weakness — the "qualification" attached to each lead was <strong>a claim</strong> rather than <strong>evidence</strong>. A calling agent noted the prospect was interested; a landing page recorded a checkbox click. If a regulator or an unhappy prospect ever asked "what actually happened here?", the answer was a story, not a record.</p>
+
+<p>We built our qualification model to eliminate that gap. Every lead we deliver comes with an <strong>immutable, replayable audit trail</strong> — the prospect's own voice confirming interest, a machine-generated transcript, a timestamped DNCR check, and structured qualification fields captured in real time. Not because it's convenient. Because it's the only way we can hand a broker a lead and say <em>this is genuine, and here is the proof.</em></p>
+
+<h2>The four-step qualification process</h2>
+
+<h3>Step 1 — Sourcing the candidate pool</h3>
+
+<p>We work from targeted Australian datasets — business databases, industry registries, consumer datasets — filtered against the criteria you agreed during onboarding (state, postcode, product category, deal-size band, timeframe). No lead ever enters qualification without matching your defined targeting. This step is deliberately narrow: better to qualify 100 well-matched prospects than 1,000 loosely-matched ones.</p>
+
+<h3>Step 2 — AI voice qualification call</h3>
+
+<p>Our proprietary AI voice qualification system dials each prospect in the candidate pool and conducts a live phone conversation. The agent introduces itself, explains who LeadEvolution is, describes the type of specialist that would be contacting them, and asks the qualification questions relevant to your vertical (e.g. for mortgage: loan purpose, estimated amount, timeframe, current situation).</p>
+
+<p>The call is recorded from start to finish. A machine-generated transcript is produced automatically. The recording, transcript, and timestamped structured data are stored against the prospect's record — regardless of whether they qualify or not.</p>
+
+<h3>Step 3 — Consent capture and DNCR verification</h3>
+
+<p>If the prospect confirms interest, the AI voice agent captures explicit consent — in the prospect's own voice — to be contacted by a specialist within an agreed timeframe. The consent statement is standardised, unambiguous, and clearly identifies LeadEvolution as the source and the broker's vertical as the destination.</p>
+
+<p>Simultaneously, the prospect's phone number is checked against the current Do Not Call Register. If the check fails, the lead is discarded regardless of what was said on the call. If it passes, the DNCR-clear status is recorded with a timestamp.</p>
+
+<h3>Step 4 — Delivery to the broker</h3>
+
+<p>Only prospects who confirmed interest, provided consent, and cleared DNCR are delivered as leads. Each qualified lead arrives in your chosen format — CRM push, email, or spreadsheet — with the full structured data record attached: name, phone, email, vertical-specific qualification fields, consent timestamp, DNCR check timestamp, and delivery time.</p>
+
+<p>The underlying audio recording and transcript remain on file. Any lead can be pulled up and replayed on demand.</p>
+
+<h2>What every qualified lead includes</h2>
+
+<p>A LeadEvolution qualified lead carries more evidence than most brokers realise. Every record includes:</p>
+
+<ul>
+  <li><strong>Contact fields:</strong> full name, mobile number, email address, postcode</li>
+  <li><strong>Vertical-specific qualification data:</strong> loan amount for mortgage, coverage type for insurance, system size interest for solar, deal size for commercial finance, and so on</li>
+  <li><strong>Timeframe indication:</strong> ready now, 1–3 months, 3–6 months, longer horizon</li>
+  <li><strong>Consent record:</strong> audio recording of the prospect's own voice confirming interest and agreeing to be contacted</li>
+  <li><strong>Transcript:</strong> machine-generated text version of the qualification call for search and audit</li>
+  <li><strong>Timestamps:</strong> when the call happened, when consent was given, when DNCR was checked, when the lead was delivered to you</li>
+  <li><strong>Source trail:</strong> which dataset the prospect originated from, ensuring you can trace the full journey</li>
+</ul>
+
+<h2>The compliance advantage — why the audit trail matters</h2>
+
+<p>Australia's regulatory environment for outbound lead generation has three main players: <strong>ACMA</strong> (the Do Not Call Register and Spam Act), <strong>OAIC</strong> (the Privacy Act), and <strong>ASIC</strong> (financial services conduct). All three assume that any party contacting a prospect can produce evidence — not narrative — that consent was properly obtained.</p>
+
+<p>Under a human-qualified lead model, that evidence is a text note in a CRM. Under our AI voice qualification model, that evidence is:</p>
+
+<ul>
+  <li>An audio recording of the prospect saying, in their own voice, that they wanted to be contacted</li>
+  <li>A machine-generated transcript of the full conversation</li>
+  <li>A millisecond-accurate timestamp of when consent was given</li>
+  <li>A DNCR check performed at qualification and stored with the record</li>
+</ul>
+
+<p>If an ACMA investigator ever asks "produce the consent record for this phone number," we can retrieve it in seconds. Not "we called and the caller wrote that consent was given" — but "here is the audio, here is the transcript, here is the timestamp, here is the DNCR check receipt." That's what defensible looks like.</p>
+
+<div class="callout"><p>The audit trail is not something we bolt on afterwards for compliance appearances. It's the byproduct of running qualification through a voice AI instead of a human calling centre. The evidence exists because the process is architecturally designed to produce it.</p></div>
+
+<h2>Why AI qualification is more honest than human qualification</h2>
+
+<p>The unintuitive thing about AI voice qualification is that it produces <em>more truthful</em> leads than a human calling centre would. Three reasons:</p>
+
+<h3>No incentive to overstate</h3>
+
+<p>A human calling agent is typically paid per qualified lead they produce. That creates a financial incentive to nudge ambiguous conversations toward "qualified." An AI voice agent has no such incentive. A "maybe" stays a "maybe." A "not interested" stays a "not interested." The lead-classification bias that exists in human calling operations simply doesn't exist in the AI model.</p>
+
+<h3>No shortcuts under time pressure</h3>
+
+<p>Human callers under quota pressure will skip disclaimers, abbreviate scripts, or hurry through consent language. AI voice qualification runs the full compliant script on every call regardless of volume. The 500th call of the day is identical to the first.</p>
+
+<h3>No memory of the last call</h3>
+
+<p>A human caller who just had a difficult conversation can carry frustration into the next call. AI voice qualification approaches every prospect fresh. There's no fatigue-driven variability in how prospects are treated.</p>
+
+<h2>What we don't do</h2>
+
+<p>The best way to explain a qualification model is often by describing what it isn't. LeadEvolution doesn't:</p>
+
+<ul>
+  <li><strong>Sell shared leads.</strong> Every qualified lead is delivered to one broker only. It is never resold, resupplied, or added to a common pool.</li>
+  <li><strong>Use form-fill funnels.</strong> Landing-page checkbox consent is not consent. We source prospects through voice conversations, not landing pages.</li>
+  <li><strong>Use human calling centres for qualification.</strong> The qualification call is always run by our AI voice system. Humans are involved in campaign design, quality assurance, and client management — not in the qualification call itself.</li>
+  <li><strong>Push volume ahead of quality.</strong> If a week's candidate pool doesn't produce enough genuinely interested prospects, we deliver fewer leads that week rather than lowering the qualification bar. Consistency comes from operational discipline, not from padding.</li>
+  <li><strong>Charge for leads that don't meet spec.</strong> Every delivered lead is against your defined criteria. Where an edge case slips through, our replacement policy applies and no invoice attaches.</li>
+</ul>
+
+<h2>What this means for you</h2>
+
+<p>Working with a lead source that runs AI voice qualification changes three things about your pipeline economics:</p>
+
+<h3>Contact and conversion rates are higher</h3>
+
+<p>Because every prospect explicitly consented to a specialist call — in a live voice conversation, not a checkbox — they answer when you call, they remember why they're expecting to hear from you, and they engage in the conversation. Contact rates on our leads typically sit in the 75–90% range, versus 25–45% on form-fill leads and 8–15% on human-dialled cold data.</p>
+
+<h3>Your compliance file is clean without extra work</h3>
+
+<p>You don't need to build a separate consent-evidence workflow. Every lead we deliver arrives with the compliance artefact already attached. If a prospect ever disputes consent, or a regulator ever asks, the answer is one query away.</p>
+
+<h3>Your CRM stays healthy</h3>
+
+<p>Because we don't inflate qualification to hit lead-count targets, the leads that land in your pipeline are ones you can actually work. Fewer "why did you send me this?" moments, cleaner reporting, more useful trailing-conversion analysis. The signal-to-noise ratio of a well-run PPL pipeline is one of the highest-leverage improvements a broker's operations team can make.</p>
+
+<h2>How to see it in action</h2>
+
+<p>The fastest way to understand the model is to onboard onto a small trial — usually 10 to 25 leads across your first two weeks. During that trial you'll see the leads land in your CRM (or email, or spreadsheet), you'll work them through your normal sales process, and you can request the audio recording of the consent capture for any lead delivered. If the model works for your operation, we scale volume from there. If it doesn't, we part on good terms with no lock-in.</p>
+
+<p>Tell us your vertical, your target volume, and your delivery preference. We'll come back to you inside one business day with a plan.</p>
+"""
+
+build(
+    "how-we-qualify.html",
+    "How LeadEvolution Qualifies Every Lead — AI Voice Qualification Process",
+    "Every LeadEvolution lead is qualified by our AI voice system, with full audio, transcript, DNCR timestamp and structured data attached. The end-to-end process, explained.",
+    body_10,
+    section_label="Our Process"
+)
+
+# Fix: /how-we-qualify.html is at root, not subfolder — regenerate with root-relative asset paths
+import re as _re
+root_page = ROOT / "how-we-qualify.html"
+if root_page.exists():
+    c = root_page.read_text(encoding="utf-8")
+    c = c.replace('href="../styles.css"', 'href="styles.css"')
+    c = c.replace('href="../index.html"', 'href="index.html"')
+    c = c.replace('href="../verticals/', 'href="verticals/')
+    c = c.replace('href="../faq.html"', 'href="faq.html"')
+    c = c.replace('href="../team.html"', 'href="team.html"')
+    c = c.replace('href="../contact.html"', 'href="contact.html"')
+    c = c.replace('href="../resources.html"', 'href="resources.html"')
+    c = c.replace('href="../terms.html"', 'href="terms.html"')
+    c = c.replace('href="../privacy.html"', 'href="privacy.html"')
+    c = c.replace('src="../main.js', 'src="main.js')
+    root_page.write_text(c, encoding="utf-8")
+    print("[✓] fixed root-relative asset paths in how-we-qualify.html")
+
+print("\n[DONE] all 4 comparison + 5 guide pages + how-we-qualify built")
