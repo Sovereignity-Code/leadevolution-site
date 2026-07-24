@@ -1,3 +1,29 @@
+// Visit tracker — records every page a visitor sees in localStorage
+// so the lead form can include their browsing journey in the enquiry email.
+// Runs synchronously on script load (before DOMContentLoaded) so we capture the pageview immediately.
+(function trackVisit(){
+  try{
+    var KEY='le_visits';
+    var MAX=50;
+    var now=Date.now();
+    var page={
+      ts:now,
+      path:window.location.pathname+window.location.search,
+      title:document.title,
+      referrer:document.referrer||'direct'
+    };
+    var history=[];
+    try{history=JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){history=[];}
+    // Skip if last recorded page is identical AND was <2s ago (dedupe rapid double-fires)
+    var last=history[history.length-1];
+    if(!(last && last.path===page.path && (now-last.ts)<2000)){
+      history.push(page);
+      if(history.length>MAX)history=history.slice(-MAX);
+      try{localStorage.setItem(KEY,JSON.stringify(history));}catch(e){}
+    }
+  }catch(e){/* fail silent - never break the page */}
+})();
+
 // Mobile nav
 document.addEventListener('DOMContentLoaded',()=>{
   const hb=document.getElementById('hamburger');

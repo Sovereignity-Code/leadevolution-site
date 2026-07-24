@@ -209,6 +209,11 @@ The LeadEvolution Team
 info@leadevolution.com.au">
         <input type="hidden" name="_honey" value="">
 
+        <!-- INTERNAL TRACKING - populated by JS before submit -->
+        <input type="hidden" name="🕒 Session Summary" id="session-summary">
+        <input type="hidden" name="📍 Pages Visited (in order)" id="visit-history">
+        <input type="hidden" name="🔗 First Referrer" id="first-referrer">
+
         <!-- STEP 1 — INDUSTRY -->
         <div class="step-header"><span class="step-num">1</span>Your Industry</div>
         <div class="field">
@@ -383,6 +388,51 @@ function selectDelivery(el, val) {
     if (otherInput) otherInput.value = industry;
   }
   toggleOther(sel);
+})();
+
+// Populate visit history hidden fields on form submit
+// So Louis sees the prospect's browsing journey in the enquiry email
+(function() {
+  var form = document.getElementById('lead-form');
+  if (!form) return;
+  form.addEventListener('submit', function() {
+    try {
+      var history = JSON.parse(localStorage.getItem('le_visits') || '[]');
+      if (history.length === 0) {
+        document.getElementById('visit-history').value = '(no page history captured — likely blocked cookies or first-visit direct entry)';
+        document.getElementById('session-summary').value = '1 page viewed (this form)';
+        document.getElementById('first-referrer').value = document.referrer || 'direct';
+        return;
+      }
+      // Build a readable page-visit list
+      var lines = history.map(function(v, i) {
+        var d = new Date(v.ts);
+        var timeStr = d.toLocaleString('en-AU', { timeZone: 'Australia/Sydney', hour12: false });
+        var url = 'https://leadevolution.com.au' + v.path;
+        return (i + 1) + '. [' + timeStr + '] ' + v.title + ' → ' + url;
+      });
+      document.getElementById('visit-history').value = lines.join('\n\n');
+
+      // Session summary
+      var first = history[0];
+      var firstDate = new Date(first.ts);
+      var lastDate = new Date(history[history.length - 1].ts);
+      var sessionMinutes = Math.round((Date.now() - first.ts) / 60000);
+      var sessionStr = 'First visit: ' + firstDate.toLocaleString('en-AU', { timeZone: 'Australia/Sydney', hour12: false }) +
+                       ' | Total pages viewed: ' + history.length +
+                       ' | Session duration: ' + sessionMinutes + ' min' +
+                       ' | Latest page: ' + lastDate.toLocaleString('en-AU', { timeZone: 'Australia/Sydney', hour12: false });
+      document.getElementById('session-summary').value = sessionStr;
+
+      // First referrer (where they arrived from)
+      var ref = first.referrer || 'direct';
+      // Clean up own-domain referrer to just show "direct"
+      if (ref.indexOf('leadevolution.com.au') !== -1) ref = 'direct (or internal)';
+      document.getElementById('first-referrer').value = ref;
+    } catch (e) {
+      // Never block form submission
+    }
+  });
 })();
 </script>
 </body>
