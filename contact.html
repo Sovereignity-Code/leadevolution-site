@@ -354,6 +354,34 @@ function selectDelivery(el, val) {
     document.querySelector('.page-hero .page-hero-inner p').textContent = "We've got your details and will be in touch within one business day.";
   }
 })();
+// Pre-select industry from ?industry= query param (used by homepage panels + vertical pages)
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var industry = params.get('industry');
+  if (!industry) return;
+  var sel = document.getElementById('industry');
+  if (!sel) return;
+  var matched = false;
+  for (var i = 0; i < sel.options.length; i++) {
+    if (sel.options[i].value.toLowerCase() === industry.toLowerCase()) {
+      sel.selectedIndex = i;
+      matched = true;
+      break;
+    }
+  }
+  if (!matched) {
+    // Fall back to Other + populate the text field
+    for (var j = 0; j < sel.options.length; j++) {
+      if (sel.options[j].value === 'Other') {
+        sel.selectedIndex = j;
+        break;
+      }
+    }
+    var otherInput = document.getElementById('industry-other');
+    if (otherInput) otherInput.value = industry;
+  }
+  toggleOther(sel);
+})();
 </script>
 </body>
 </html>
